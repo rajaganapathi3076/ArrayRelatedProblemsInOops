@@ -11,45 +11,40 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the ArrayRelatedPro UC2");
+            Console.WriteLine("Welcome to the ArrayRelatedPro UC3");
             int[] numbers = { 1, 2, 3, 4, 5, 6, 2, 5, 1, 4, 5, 2, 4, 2, 5, 2, 9, 8 };
 
-            List<int> uniquenElements = GetuniqueElements(numbers);
+           Dictionary<int,int>frequency=CountElementFrequency(numbers);
 
-            Console.WriteLine("uniqueElements");
+            Console.WriteLine("Elements Frequency");
             
 
-            foreach(int element in uniquenElements)
+            foreach(KeyValuePair<int,int> pair in frequency)
             {
-                Console.WriteLine($"{element}");
+                Console.WriteLine($"{pair.Key} - frequency :{pair.Value}");
             }
            
         }
-        static List<int> GetuniqueElements(int[] numbers )
+        static Dictionary<int,int> CountElementFrequency (int[] numbers )
         {
-            List<int>uniqueelements=new List<int>();
-            Dictionary<int,int> count = new Dictionary<int,int>(); 
+           
+            Dictionary<int,int> frequency = new Dictionary<int,int>(); 
 
             
             foreach (int number in numbers) 
             {
-                if (count.ContainsKey(number)) 
+                if (frequency.ContainsKey(number)) 
                 {
-                    count[number]++;
+                    frequency[number]++;
                 }
                 else
                 {
-                    count[number] = 1;
+                    frequency[number] = 1;
 
                 }
             }
-            foreach(KeyValuePair<int,int> pair in count)
-            {
-                if(pair.Value == 1)
-                {
-                    uniqueelements.Add(pair.Key);
-                }
-            }return uniqueelements;
+            
+            return frequency;
             
             
         }
