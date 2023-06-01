@@ -11,27 +11,26 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the ArrayRelatedPro UC1");
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 2, 5, 1, 4, 5, 2, 4, 2, 5, 2 };
+            Console.WriteLine("Welcome to the ArrayRelatedPro UC2");
+            int[] numbers = { 1, 2, 3, 4, 5, 6, 2, 5, 1, 4, 5, 2, 4, 2, 5, 2, 9, 8 };
 
-            Dictionary<int, int> duplicates = CountDuplicates(numbers);
+            List<int> uniquenElements = GetuniqueElements(numbers);
 
-            Console.WriteLine("Duplicate Elements:  ");
+            Console.WriteLine("uniqueElements");
+            
 
-            foreach(KeyValuePair<int, int> pair in duplicates)
+            foreach(int element in uniquenElements)
             {
-                if (pair.Value > 1)
-                {
-                    Console.WriteLine($"{pair.Key} - Count: {pair.Value}");
-                }
+                Console.WriteLine($"{element}");
             }
-            int totalDuplicates = duplicates.Values.Sum();
-            Console.WriteLine($"Total number of duplicate elements: {totalDuplicates}");
-
+           
         }
-        static Dictionary<int,int> CountDuplicates(int[] numbers)
+        static List<int> GetuniqueElements(int[] numbers )
         {
-            Dictionary<int,int>count=new Dictionary<int,int>();
+            List<int>uniqueelements=new List<int>();
+            Dictionary<int,int> count = new Dictionary<int,int>(); 
+
+            
             foreach (int number in numbers) 
             {
                 if (count.ContainsKey(number)) 
@@ -44,8 +43,15 @@ namespace ArrayRelatedProblem
 
                 }
             }
+            foreach(KeyValuePair<int,int> pair in count)
+            {
+                if(pair.Value == 1)
+                {
+                    uniqueelements.Add(pair.Key);
+                }
+            }return uniqueelements;
             
-            return count;
+            
         }
     }
 }
