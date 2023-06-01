@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,42 +12,43 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the ArrayRelatedPro UC3");
+            Console.WriteLine("Welcome to the ArrayRelatedPro UC4");
             int[] numbers = { 1, 2, 3, 4, 5, 6, 2, 5, 1, 4, 5, 2, 4, 2, 5, 2, 9, 8 };
 
-           Dictionary<int,int>frequency=CountElementFrequency(numbers);
+            int maximum = FindMaximum(numbers);
+            int minimum = FindMinimum(numbers);
 
-            Console.WriteLine("Elements Frequency");
-            
-
-            foreach(KeyValuePair<int,int> pair in frequency)
-            {
-                Console.WriteLine($"{pair.Key} - frequency :{pair.Value}");
-            }
+            Console.WriteLine($"Maximum Elements :{maximum}");
+            Console.WriteLine($"Minimum Elements  :{minimum}");
            
         }
-        static Dictionary<int,int> CountElementFrequency (int[] numbers )
+        static int FindMaximum(int[] numbers)
         {
-           
-            Dictionary<int,int> frequency = new Dictionary<int,int>(); 
 
-            
-            foreach (int number in numbers) 
+            int maximum = numbers[0]; 
+
+            for(int i = 0; i < numbers.Length; i++)
             {
-                if (frequency.ContainsKey(number)) 
+                if(numbers[i] > maximum)
                 {
-                    frequency[number]++;
-                }
-                else
-                {
-                    frequency[number] = 1;
-
+                    maximum = numbers[i];
                 }
             }
-            
-            return frequency;
-            
-            
+            return maximum;
+          
+        }
+        static int FindMinimum(int[] numbers)
+        {
+            int minimum= numbers[0];
+
+            for(int i=0; i < numbers.Length; i++)
+            {
+                if(numbers[i] < minimum)
+                {
+                    minimum = numbers[i];
+                }
+            }
+            return minimum;
         }
     }
 }
