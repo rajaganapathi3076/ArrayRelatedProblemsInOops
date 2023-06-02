@@ -12,43 +12,22 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the ArrayRelatedPro UC4");
-            int[] numbers = { 1, 2, 3, 4, 5, 6, 2, 5, 1, 4, 5, 2, 4, 2, 5, 2, 9, 8 };
-
-            int maximum = FindMaximum(numbers);
-            int minimum = FindMinimum(numbers);
-
-            Console.WriteLine($"Maximum Elements :{maximum}");
-            Console.WriteLine($"Minimum Elements  :{minimum}");
-           
-        }
-        static int FindMaximum(int[] numbers)
-        {
-
-            int maximum = numbers[0]; 
-
-            for(int i = 0; i < numbers.Length; i++)
+            Console.WriteLine("Welcome to Print Pattern UC5");
+            int rows = 8;
+            int j, k, i;
+            for ( i = 1; i <= rows; i++) 
             {
-                if(numbers[i] > maximum)
+                for ( j = 1; j <= rows-i; j++) 
                 {
-                    maximum = numbers[i];
+                    //Console.Write("*");
                 }
-            }
-            return maximum;
-          
-        }
-        static int FindMinimum(int[] numbers)
-        {
-            int minimum= numbers[0];
-
-            for(int i=0; i < numbers.Length; i++)
-            {
-                if(numbers[i] < minimum)
+                for( k = 1; k <= j; k++)
                 {
-                    minimum = numbers[i];
+                    Console.Write("*");
                 }
+                Console.WriteLine("");
             }
-            return minimum;
+            Console.WriteLine();
         }
     }
 }
