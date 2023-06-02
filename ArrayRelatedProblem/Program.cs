@@ -12,18 +12,36 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Sum of digits problems UC8");
-            Console.WriteLine("Enter the number");
-            int a =int .Parse(Console.ReadLine());
-            int sum = 0, b;
-            while(a != 0)
+            Console.WriteLine("Matrix problem UC9");
+            int[,] matrix = {
+            { 1, 2, 3 },
+            { 4, 5, 6 },
+            { 7, 8, 9 }
+        };
+
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+
+            int[] rowSums = new int[rows];
+
+            for (int i = 0; i < rows; i++)
             {
-                b = a % 10;
-                sum = sum + b;
-                a = a / 10;
-                
+                int sum = 0;
+                for (int j = 0; j < columns; j++)
+                {
+                    sum += matrix[i, j];
+                }
+                rowSums[i] = sum;
             }
-            Console.WriteLine($"The sum of  the Digits is:  {sum}");
+
+            Console.WriteLine("Sum of each row:");
+
+            for (int i = 0; i < rows; i++)
+            {
+                Console.WriteLine("Row {0}: {1}", i + 1, rowSums[i]);
+            }
+
+            Console.ReadLine();
 
 
         }    
