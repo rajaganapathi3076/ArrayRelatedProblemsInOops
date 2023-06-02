@@ -12,22 +12,35 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Print Pattern UC5");
-            int rows = 8;
-            int j, k, i;
-            for ( i = 1; i <= rows; i++) 
-            {
-                for ( j = 1; j <= rows-i; j++) 
-                {
-                    //Console.Write("*");
-                }
-                for( k = 1; k <= j; k++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine("");
-            }
-            Console.WriteLine();
+            int rows, columns;
+
+            Console.Write("Enter the number of rows: ");
+            rows = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the number of columns: ");
+            columns = int.Parse(Console.ReadLine());
+
+            PrintRectanglePattern(rows, columns);
+
+            Console.ReadLine();
         }
+
+        static void PrintRectanglePattern(int rows, int columns)
+        {
+            for (int i = 1; i <= rows; i++)
+            {
+                for (int j = 1; j <= columns; j++)
+                {
+                    if (i == 1 || i == rows || j == 1 || j == columns)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write(" ");
+                    }
+                }
+                Console.WriteLine();
+            }    }
     }
 }
