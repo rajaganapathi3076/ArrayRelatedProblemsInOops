@@ -12,35 +12,32 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            int rows, columns;
+            Console.WriteLine("ArrayRelaed problems UC7");
+            string Inputstring, reversedString;
 
-            Console.Write("Enter the number of rows: ");
-            rows = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the String");
+            Inputstring = Console.ReadLine();
 
-            Console.Write("Enter the number of columns: ");
-            columns = int.Parse(Console.ReadLine());
 
-            PrintRectanglePattern(rows, columns);
+            reversedString = ReverseWord(Inputstring);
+            Console.WriteLine("Reverse string: " + reversedString);
 
-            Console.ReadLine();
+            Console.WriteLine();
         }
-
-        static void PrintRectanglePattern(int rows, int columns)
+        static string  ReverseWord(string Input) 
         {
-            for (int i = 1; i <= rows; i++)
+            string[] words = Input.Split(' ');
+            string reversedString = "";
+
+            foreach (string word in words)
             {
-                for (int j = 1; j <= columns; j++)
-                {
-                    if (i == 1 || i == rows || j == 1 || j == columns)
-                    {
-                        Console.Write("*");
-                    }
-                    else
-                    {
-                        Console.Write(" ");
-                    }
-                }
-                Console.WriteLine();
-            }    }
+                char[] characters = word.ToCharArray();
+                Array.Reverse(characters);
+                string reversedWord = new string(characters);
+                reversedString += reversedWord + " ";
+            }
+            return reversedString;
+
+        }    
     }
 }
