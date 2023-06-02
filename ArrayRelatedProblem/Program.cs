@@ -12,31 +12,19 @@ namespace ArrayRelatedProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("ArrayRelaed problems UC7");
-            string Inputstring, reversedString;
-
-            Console.WriteLine("Enter the String");
-            Inputstring = Console.ReadLine();
-
-
-            reversedString = ReverseWord(Inputstring);
-            Console.WriteLine("Reverse string: " + reversedString);
-
-            Console.WriteLine();
-        }
-        static string  ReverseWord(string Input) 
-        {
-            string[] words = Input.Split(' ');
-            string reversedString = "";
-
-            foreach (string word in words)
+            Console.WriteLine("Sum of digits problems UC8");
+            Console.WriteLine("Enter the number");
+            int a =int .Parse(Console.ReadLine());
+            int sum = 0, b;
+            while(a != 0)
             {
-                char[] characters = word.ToCharArray();
-                Array.Reverse(characters);
-                string reversedWord = new string(characters);
-                reversedString += reversedWord + " ";
+                b = a % 10;
+                sum = sum + b;
+                a = a / 10;
+                
             }
-            return reversedString;
+            Console.WriteLine($"The sum of  the Digits is:  {sum}");
+
 
         }    
     }
